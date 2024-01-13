@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://blvmw1aet6bb6"]
+[gd_scene load_steps=6 format=3 uid="uid://blvmw1aet6bb6"]
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
 [ext_resource type="PackedScene" uid="uid://b75yb01fpbood" path="res://src/levels/obstables/wall.tscn" id="3_u1j8h"]
+[ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="3_vwajk"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2wf1"]
 _data = {
@@ -19,10 +20,14 @@ position = Vector2(400, 300)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Gun" parent="Player" instance=ExtResource("3_vwajk")]
+position = Vector2(37, 0)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-400, -300)
 curve = SubResource("Curve2D_s2wf1")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-64, -64)
 
