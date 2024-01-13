@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/weapons/bullet/bullet.gd" id="1_cppfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3majc"]
-size = Vector2(64, 32)
+size = Vector2(40, 16)
 
 [node name="Bullet" type="Area2D"]
 top_level = true
@@ -11,12 +11,13 @@ script = ExtResource("1_cppfj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -16.0
-offset_top = -8.0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 4.0
+rotation = -0.000196792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_3majc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

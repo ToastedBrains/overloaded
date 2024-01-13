@@ -21,7 +21,6 @@ position = Vector2(400, 300)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Gun" parent="Player" instance=ExtResource("3_vwajk")]
-position = Vector2(37, 0)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-400, -300)
