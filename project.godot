@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Overloaded"
+run/main_scene="res://src/levels/level_base/level_base.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Debug="*res://src/global/debug.gd"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
