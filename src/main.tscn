@@ -12,3 +12,5 @@ script = ExtResource("1_w5krr")
 [node name="PauseMenu" parent="." instance=ExtResource("3_ko562")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="new_ennemi" from="Level" to="." method="_on_level_new_ennemi"]

@@ -4,12 +4,15 @@ var ROF = 8.0 # bullets / second
 const BULLET = preload("res://src/weapons/bullet/bullet.tscn")
 
 
+
 func _ready():
 	Debug.print(%ShootTimer.wait_time)
 	%ShootTimer.wait_time = 1 / ROF
 	Debug.print(%ShootTimer.wait_time)
 	
 func _physics_process(delta):
+	#rotation *= 1.1
+	
 	var ennemis_in_range : Array[Node2D] = get_overlapping_bodies()
 	if ennemis_in_range.size() > 0:
 		#Debug.print("Ennemy!")

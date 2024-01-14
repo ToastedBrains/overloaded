@@ -19,3 +19,5 @@ func pause_game():
 		%PauseMenu.show()
 		Engine.time_scale = 0.2
 		game_state = State.PAUSED
+
+

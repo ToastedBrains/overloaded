@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqrv6ncxrirb1"]
+
+[ext_resource type="Script" path="res://src/ui/hud/hud.gd" id="1_fj616"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fj616")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+text = "00"
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
+[node name="Debug" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "xx"

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://blvmw1aet6bb6"]
+[gd_scene load_steps=10 format=3 uid="uid://blvmw1aet6bb6"]
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
+[ext_resource type="PackedScene" uid="uid://cqrv6ncxrirb1" path="res://src/ui/hud/hud.tscn" id="2_sf1qe"]
 [ext_resource type="Script" path="res://src/levels/level_base/Camera2D.gd" id="3_p3g0h"]
 [ext_resource type="PackedScene" uid="uid://b75yb01fpbood" path="res://src/levels/obstables/wall.tscn" id="3_u1j8h"]
 [ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="3_vwajk"]
+[ext_resource type="PackedScene" uid="uid://cru12l3kx3auh" path="res://src/weapons/bullet/rot_gun.tscn" id="6_duryj"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2wf1"]
 _data = {
@@ -12,8 +14,14 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4vd6"]
+size = Vector2(40, 40)
+
 [node name="Level" type="Node"]
 script = ExtResource("1_qig2g")
+
+[node name="HUD" parent="." instance=ExtResource("2_sf1qe")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("1_nja47")]
 unique_name_in_owner = true
@@ -25,12 +33,15 @@ script = ExtResource("3_p3g0h")
 [node name="Gun" parent="Player" instance=ExtResource("3_vwajk")]
 
 [node name="Path2D" type="Path2D" parent="Player"]
+unique_name_in_owner = true
 position = Vector2(-400, -300)
 curve = SubResource("Curve2D_s2wf1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-64, -64)
+
+[node name="RotGun" parent="Player" instance=ExtResource("6_duryj")]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -47,4 +58,18 @@ position = Vector2(48, 552)
 [node name="Wall4" parent="." instance=ExtResource("3_u1j8h")]
 position = Vector2(752, 552)
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(376, 96)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.545098, 0.25098, 0.701961, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_k4vd6")
+
+[connection signal="new_ennemi" from="." to="." method="_on_new_ennemi"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
