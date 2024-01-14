@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blvmw1aet6bb6"]
+[gd_scene load_steps=7 format=3 uid="uid://blvmw1aet6bb6"]
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
+[ext_resource type="Script" path="res://src/levels/level_base/Camera2D.gd" id="3_p3g0h"]
 [ext_resource type="PackedScene" uid="uid://b75yb01fpbood" path="res://src/levels/obstables/wall.tscn" id="3_u1j8h"]
 [ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="3_vwajk"]
 
@@ -19,6 +20,7 @@ unique_name_in_owner = true
 position = Vector2(400, 300)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("3_p3g0h")
 
 [node name="Gun" parent="Player" instance=ExtResource("3_vwajk")]
 

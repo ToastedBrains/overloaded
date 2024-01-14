@@ -17,5 +17,5 @@ func pause_game():
 		game_state = State.PLAYING
 	else:
 		%PauseMenu.show()
-		Engine.time_scale = 0
+		Engine.time_scale = 0.2
 		game_state = State.PAUSED

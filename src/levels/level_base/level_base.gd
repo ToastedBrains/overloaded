@@ -2,6 +2,7 @@ extends Node
 
 const ENNEMI = preload("res://src/ennemies/ennemy/ennemy.tscn")
 
+
 func spawn():
 	var new_ennemi = ENNEMI.instantiate()
 	new_ennemi.target = %Player
