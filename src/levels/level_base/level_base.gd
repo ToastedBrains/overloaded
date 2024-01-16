@@ -28,3 +28,7 @@ func _on_ennemy_down():
 func _on_new_ennemi():
 	ennemies += 1
 	%HUD.update_debug(ennemies, ennemies_down)
+
+
+func _on_player_player_health_exhausted():
+	Debug.print("Player health = 0")
