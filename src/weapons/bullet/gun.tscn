@@ -6,6 +6,8 @@
 size = Vector2(816, 128)
 
 [node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_ctd5e")
 
 [node name="ColorRect" type="ColorRect" parent="."]

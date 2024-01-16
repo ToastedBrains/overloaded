@@ -17,7 +17,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	var aggressors = %Hitbox.get_overlapping_bodies()
-	Debug.print(aggressors.front())
+	#Debug.print(aggressors.front())
 	if aggressors.size() > 0:
 		health -= 5 * aggressors.size() * delta
 		if health <= 0:
