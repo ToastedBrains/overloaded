@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal player_health_exhausted
 
-const SPEED = 600.0
+var speed = 600.0
 const HEALTH_MAX = 100.0
 
 var health = HEALTH_MAX
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		if health <= 0:
 			emit_signal("player_health_exhausted")
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * SPEED
+	velocity = direction * speed
 	look_at(global_position + direction)
 	move_and_slide()
 
@@ -37,3 +37,10 @@ func _on_collect_zone_area_entered(area):
 		if exp in exp_steps:
 			exp_steps.append(exp_steps.back() * 2) 
 			Debug.print(exp_steps)
+
+
+func update_skills(skills):
+	Debug.print(skills)
+	if skills["speed4"]:
+		Debug.print("Gotcha!")
+		speed *= 2

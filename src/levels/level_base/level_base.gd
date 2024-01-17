@@ -2,9 +2,44 @@ extends Node
 
 signal new_ennemi
 
+enum State {OPENING, PLAYING, PAUSED, GAME_OVER}
+
 const ENNEMI = preload("res://src/ennemies/ennemy/ennemy.tscn")
+
 var ennemies = 0
 var ennemies_down = 0
+var game_state = State.OPENING
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		pause_game()
+		
+		
+func pause_game():
+	if game_state == State.PAUSED:
+		%Skills.hide_skills()
+		Engine.time_scale = 1
+		game_state = State.PLAYING
+	else:
+		%Skills.show_skills()
+		Engine.time_scale = 0.01
+		game_state = State.PAUSED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 func spawn():
 	var new_ennemi = ENNEMI.instantiate()
@@ -32,3 +67,8 @@ func _on_new_ennemi():
 
 func _on_player_player_health_exhausted():
 	Debug.print("Player health = 0")
+
+
+func _on_skills_skills_modified():
+	Debug.print("Skills update")
+	%Player.update_skills(%Skills.skills)

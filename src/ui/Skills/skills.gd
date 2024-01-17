@@ -1,8 +1,19 @@
 extends Control
 
+signal skills_modified
+
 var skill_points = 4
 var buttons = [TextureButton]
-
+var skills = {
+		"dmg1" : false,
+		"dmg2" : false,
+		"dmg3" : false,
+		"dmg5" : false,
+		"speed1" : false,
+		"speed2" : false,
+		"speed3" : false,
+		"speed4" : false,
+	}
 
 func _ready():
 	buttons = get_tree().get_nodes_in_group("buttons")
@@ -11,9 +22,18 @@ func _ready():
 	disable_buttons()
 
 
-func updatePoints():
+func show_skills():
+	%CanvasLayer.show()
+
+
+func hide_skills():
+	%CanvasLayer.hide()
+
+
+func update_points():
 	%SkillPointsAvailable.text = str(skill_points)
 	disable_buttons()
+	read_buttons()
 
 
 func disable_buttons():
@@ -24,11 +44,12 @@ func disable_buttons():
 				b.disabled = false
 			else:
 				b.disabled = true
-				b.button_pressed = false
+				if b.button_pressed:
+					b.button_pressed = false
+					skill_points += 1
 
 
 func _on_skill_button_pressed(button):
-	Debug.print(button)
 	if button.is_pressed():
 		if skill_points > 0:
 			skill_points -= 1
@@ -45,5 +66,22 @@ func _on_skill_button_pressed(button):
 				if c.is_pressed():
 					c.button_pressed = false
 					skill_points += 1
-	updatePoints()
+	update_points()
+
+
+func read_buttons():
+	Debug.print("Reading buttons")
+	for b in buttons:
+		if b.button_pressed and b.has_meta("value"):
+			Debug.print("There is value")
+			var value = b.get_meta("value")
+			if value:
+				Debug.print(value)
+				match value:
+					"dmg1":
+						Debug.print("dmg1? BUG!!!")
+					"speed4":
+						Debug.print("Turn speed4 ON")
+						skills["speed4"] = true
+	emit_signal("skills_modified")
 
