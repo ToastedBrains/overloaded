@@ -7,7 +7,8 @@ const HEALTH_MAX = 100.0
 
 var health = HEALTH_MAX
 var input = Vector2.ZERO
-
+var exp = 0
+var exp_steps = [3]
 
 func _process(_delta):
 	%HealthBar.value = health
@@ -27,3 +28,12 @@ func _physics_process(delta):
 	look_at(global_position + direction)
 	move_and_slide()
 
+
+
+func _on_collect_zone_area_entered(area):
+	if area.is_in_group("dna"):
+		area.picked_up(self)
+		exp += 1
+		if exp in exp_steps:
+			exp_steps.append(exp_steps.back() * 2) 
+			Debug.print(exp_steps)

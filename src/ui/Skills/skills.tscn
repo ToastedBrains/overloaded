@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5hpfhuyg6de6"]
+
+[ext_resource type="Script" path="res://src/ui/Skills/skills.gd" id="1_pymwy"]
+[ext_resource type="Texture2D" uid="uid://bs1vc16a8ddnq" path="res://assets/ui/skills/off.png" id="1_ydce4"]
+[ext_resource type="Texture2D" uid="uid://dof8o05ljvqy4" path="res://assets/ui/skills/on.png" id="2_asuav"]
+[ext_resource type="Texture2D" uid="uid://cfqsru1sfcp26" path="res://assets/ui/skills/disabled.png" id="3_f73ce"]
+
+[node name="Skills" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pymwy")
+
+[node name="SkillPointsAvailable" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 376.0
+offset_top = 32.0
+offset_right = 416.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 40
+text = "4"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 537.545
+offset_top = 208.0
+offset_right = 785.545
+offset_bottom = 224.0
+rotation = 1.30492
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 297.545
+offset_top = 160.0
+offset_right = 474.545
+offset_bottom = 176.0
+rotation = 1.30492
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 249.545
+offset_top = 176.0
+offset_right = 426.545
+offset_bottom = 192.0
+rotation = 2.00869
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="A" type="TextureButton" parent="." groups=["buttons"]]
+layout_mode = 0
+offset_left = 209.545
+offset_top = 128.0
+offset_right = 309.545
+offset_bottom = 228.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[node name="B" type="TextureButton" parent="A" groups=["buttons"]]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 136.0
+offset_right = 12.0
+offset_bottom = 236.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[node name="C" type="TextureButton" parent="A" groups=["buttons"]]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 136.0
+offset_right = 188.0
+offset_bottom = 236.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[node name="E" type="TextureButton" parent="." groups=["buttons"]]
+layout_mode = 0
+offset_left = 473.545
+offset_top = 128.0
+offset_right = 573.545
+offset_bottom = 228.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[node name="F" type="TextureButton" parent="E" groups=["buttons"]]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 144.0
+offset_right = 148.0
+offset_bottom = 244.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[node name="G" type="TextureButton" parent="E/F" groups=["buttons"]]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 152.0
+offset_right = 140.0
+offset_bottom = 252.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+
+[connection signal="pressed" from="A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="A/B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="A/C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="E" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="E/F" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="E/F/G" to="." method="_on_c_pressed"]
