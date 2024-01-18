@@ -1,0 +1,419 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5hpfhuyg6de6"]
+
+[ext_resource type="Script" path="res://src/ui/Skills/skills.gd" id="1_pymwy"]
+[ext_resource type="Texture2D" uid="uid://bs1vc16a8ddnq" path="res://assets/ui/skills/off.png" id="1_ydce4"]
+[ext_resource type="Texture2D" uid="uid://dof8o05ljvqy4" path="res://assets/ui/skills/on.png" id="2_asuav"]
+[ext_resource type="Texture2D" uid="uid://cfqsru1sfcp26" path="res://assets/ui/skills/disabled.png" id="3_f73ce"]
+
+[node name="Skills" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pymwy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="SkillPointsAvailable" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 376.0
+offset_top = 47.0
+offset_right = 424.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
+offset_left = 56.0
+offset_right = 752.0
+offset_bottom = 592.0
+tab_alignment = 1
+
+[node name="Marine" type="TabBar" parent="CanvasLayer/TabContainer"]
+layout_mode = 2
+
+[node name="Speed1" type="TextureButton" parent="CanvasLayer/TabContainer/Marine" groups=["buttons"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 97.0
+offset_right = -408.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "speed1"
+
+[node name="Speed2" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Speed1" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "speed2"
+
+[node name="Speed3" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Speed1/Speed2" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "speed3"
+
+[node name="Speed4" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Speed1/Speed2/Speed3" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "speed4"
+
+[node name="Speed5" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Speed1/Speed2/Speed3" groups=["buttons"]]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 96.0
+offset_right = -32.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "speed5"
+
+[node name="Health1" type="TextureButton" parent="CanvasLayer/TabContainer/Marine" groups=["buttons"]]
+layout_mode = 2
+offset_left = 416.0
+offset_top = 97.0
+offset_right = 480.0
+offset_bottom = 161.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "health1"
+
+[node name="Health2" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Health1" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "health2"
+
+[node name="Health3" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Health1/Health2" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "health3"
+
+[node name="Health4" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Health1/Health2/Health3" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "health4"
+
+[node name="Health5" type="TextureButton" parent="CanvasLayer/TabContainer/Marine/Health1/Health2/Health3" groups=["buttons"]]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "health5"
+
+[node name="Weapon" type="TabBar" parent="CanvasLayer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Damage20" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon" groups=["buttons"]]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 128.0
+offset_right = 376.0
+offset_bottom = 192.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "dmg20"
+
+[node name="Damage50" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "dmg50"
+
+[node name="DamageScope" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50" groups=["buttons"]]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 96.0
+offset_right = -16.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "scope"
+
+[node name="DamageROF2" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope" groups=["buttons"]]
+layout_mode = 0
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 64.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "rof2"
+
+[node name="DamageROF3" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageROF2" groups=["buttons"]]
+layout_mode = 0
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 64.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "rof3"
+
+[node name="DamageX2" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "dmgx2"
+
+[node name="DamageExplosive" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageX2" groups=["buttons"]]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 96.0
+offset_right = -32.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "explosive"
+
+[node name="DamagePiercing" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageX2" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "piercing"
+
+[node name="DamageDouble" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50" groups=["buttons"]]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 96.0
+offset_right = 144.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "double"
+
+[node name="DamageTriple" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" groups=["buttons"]]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "triple"
+
+[node name="DamageArm1" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" groups=["buttons"]]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 64.0
+offset_bottom = 256.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "arm1"
+
+[node name="DamageArm2" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" groups=["buttons"]]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 192.0
+offset_right = 144.0
+offset_bottom = 256.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "arm2"
+
+[node name="DamageArm3" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" groups=["buttons"]]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 192.0
+offset_right = 240.0
+offset_bottom = 256.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "arm3"
+
+[node name="DamageArmSuper" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" groups=["buttons"]]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 96.0
+offset_right = 240.0
+offset_bottom = 160.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("1_ydce4")
+texture_pressed = ExtResource("2_asuav")
+texture_disabled = ExtResource("3_f73ce")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/value = "armsuper"
+
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Speed1" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Speed1/Speed2" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Speed1/Speed2/Speed3" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Speed1/Speed2/Speed3/Speed4" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Speed1/Speed2/Speed3/Speed5" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Health1" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Health1/Health2" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Health1/Health2/Health3" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Health1/Health2/Health3/Health4" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Marine/Health1/Health2/Health3/Health5" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageROF2" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageROF2/DamageROF3" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageX2" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageX2/DamageExplosive" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageScope/DamageX2/DamagePiercing" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble/DamageTriple" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble/DamageArm1" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble/DamageArm2" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble/DamageArm3" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Weapon/Damage20/Damage50/DamageDouble/DamageArmSuper" to="." method="_on_c_pressed"]

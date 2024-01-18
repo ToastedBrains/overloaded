@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjb278c20ud2o"]
+
+[ext_resource type="Script" path="res://src/levels/objectives/objective.gd" id="1_hg3x6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4gp0"]
+size = Vector2(256, 256)
+
+[node name="Objective" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_hg3x6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(1, 0, 0, 0.25098)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_k4gp0")
+
+[node name="SolveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="TimeDisplay" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 80.0
+offset_top = -24.0
+offset_right = 112.0
+offset_bottom = -1.0
+text = "00.0"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="SolveTimer" to="." method="_on_solve_timer_timeout"]

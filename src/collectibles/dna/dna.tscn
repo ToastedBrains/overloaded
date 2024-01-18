@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://crxnaynppcnmc"]
+
+[ext_resource type="Script" path="res://src/collectibles/dna/dna.gd" id="1_72lv5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8k3x"]
+radius = 64.0
+
+[node name="DNA" type="Area2D" groups=["dna"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_72lv5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b8k3x")

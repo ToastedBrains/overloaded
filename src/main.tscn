@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgwirr5n8o5sg"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_w5krr"]
+[ext_resource type="PackedScene" uid="uid://blvmw1aet6bb6" path="res://src/levels/level_base/level_base.tscn" id="2_iytp1"]
+[ext_resource type="PackedScene" uid="uid://qk34hh8nh8lb" path="res://src/ui/pause_menu/pause_menu.tscn" id="3_ko562"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_w5krr")
+
+[node name="Level" parent="." instance=ExtResource("2_iytp1")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_ko562")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="new_ennemi" from="Level" to="." method="_on_level_new_ennemi"]

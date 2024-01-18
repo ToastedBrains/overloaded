@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://qk34hh8nh8lb"]
+
+[ext_resource type="Script" path="res://src/ui/pause_menu/pause_menu.gd" id="1_w4vsb"]
+[ext_resource type="Shader" path="res://src/ui/pause_menu/pause_menu.gdshader" id="2_72mqh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xspd"]
+shader = ExtResource("2_72mqh")
+shader_parameter/amount = 0.7
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4vsb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_7xspd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -60.0
+offset_right = 136.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Return to fight!"
+
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Quit game"
