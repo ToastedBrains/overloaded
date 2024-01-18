@@ -2,14 +2,17 @@ extends Node
 
 signal new_ennemi
 
-enum State {OPENING, PLAYING, PAUSED, GAME_OVER}
+
 
 const ENNEMI = preload("res://src/ennemies/ennemy/ennemy.tscn")
 
 var ennemies = 0
 var ennemies_down = 0
-var game_state = State.OPENING
 
+
+
+func _ready():
+	%Music.play()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -17,14 +20,14 @@ func _process(delta):
 		
 		
 func pause_game():
-	if game_state == State.PAUSED:
+	if Vars.game_state == Vars.State.PAUSED:
 		%Skills.hide_skills()
 		Engine.time_scale = 1
-		game_state = State.PLAYING
+		Vars.game_state = Vars.State.PLAYING
 	else:
 		%Skills.show_skills()
-		Engine.time_scale = 0.01
-		game_state = State.PAUSED
+		Engine.time_scale = 0.001
+		Vars.game_state = Vars.State.PAUSED
 
 
 func spawn():
@@ -36,6 +39,9 @@ func spawn():
 	call_deferred("add_child", new_ennemi)
 	emit_signal("new_ennemi")
 
+
+func spawn_more():
+	%SpawnTimer.wait_time /= 1.1
 
 func _on_spawn_timer_timeout():
 	spawn()
@@ -53,19 +59,20 @@ func _on_new_ennemi():
 
 
 func _on_player_player_health_exhausted():
-	Debug.print("Player health = 0")
+	#Debug.print("Player health = 0")
+	pass
 
 
 func _on_skills_skills_modified():
-	Debug.print("Skills update")
-	%Player.update_skills(%Skills.skills)
+	#Debug.print("Skills update")
+	%Player.update_skills(Vars.skills)
 	%HUD.hide_skill_message()
 
 
 func _on_player_skill_point_earned():
 	%Skills.update_points()
 	%HUD.show_skill_message()
-
+	spawn_more()
 
 func _on_player_exp_gained():
 	%HUD.update_xp()

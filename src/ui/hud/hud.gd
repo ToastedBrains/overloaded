@@ -1,12 +1,14 @@
 extends CanvasLayer
 
 var exp_full = false
-var last_exp_step = 0
-
+var last_xp_step = 0
+var player : Node
 
 #func _process(_delta):
-	#update_xp()
-
+	#var player = get_parent().get_node("Player")
+	
+func _ready():
+	player = get_parent().get_node("Player")
 
 func show_skill_message():
 	%NewSkill.show()
@@ -18,16 +20,18 @@ func hide_skill_message():
 
 func update_xp():
 	#Debug.print(%ExpBar.value)
-	if Vars.exp_steps.size() > 1:
-		last_exp_step = Vars.exp_steps[-2]
+	if Vars.xp_steps.size() > 1:
+		last_xp_step = Vars.xp_steps[-2]
 	#Debug.print(last_exp_step)
-	%ExpBar.min_value = last_exp_step
-	%ExpBar.max_value = Vars.exp_steps.back()
-	%ExpBar.value = Vars.exp
+	%ExpBar.min_value = last_xp_step
+	%ExpBar.max_value = Vars.xp_steps.back()
+	%ExpBar.value = Vars.xp
 	
 
 func update_debug(ennemis, killed):
-	%Debug.text = "Ennemis = {ennemis}\nKilled = {killed}\n".format({
+	%Debug.text = "Ennemis = {ennemis}\nKilled = {killed}\nHealth = {health}/{health_max}\n".format({
 		"ennemis": ennemis,
 		"killed": killed,
+		"health": player.health,
+		"health_max": player.health_max,
 	})

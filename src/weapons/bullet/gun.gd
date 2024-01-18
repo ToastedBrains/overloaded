@@ -1,14 +1,14 @@
 extends Area2D
 
-var ROF = 8.0 # bullets / second
+var ROF = 2.0 # bullets / second
 const BULLET = preload("res://src/weapons/bullet/bullet.tscn")
 
 
 
 func _ready():
-	Debug.print(%ShootTimer.wait_time)
+	#Debug.print(%ShootTimer.wait_time)
 	%ShootTimer.wait_time = 1 / ROF
-	Debug.print(%ShootTimer.wait_time)
+	#Debug.print(%ShootTimer.wait_time)
 	
 func _physics_process(delta):
 	#rotation *= 1.1
@@ -25,7 +25,7 @@ func shoot():
 	new_bullet.global_position = %Cannon.global_position
 	new_bullet.global_rotation = %Cannon.global_rotation
 	%Cannon.add_child(new_bullet)
-
+	%ShootSFX.play()
 
 func _on_shoot_timer_timeout():
 	shoot()

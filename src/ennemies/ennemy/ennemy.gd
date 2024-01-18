@@ -30,6 +30,7 @@ func _process(delta):
 
 
 func take_damage(damage):
+	%HitSFX1.play()
 	life -= damage
 	var new_dmgtext = DMGTEXT.instantiate()
 	new_dmgtext.global_position = global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blvmw1aet6bb6"]
+[gd_scene load_steps=12 format=3 uid="uid://blvmw1aet6bb6"]
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="3_vwajk"]
 [ext_resource type="PackedScene" uid="uid://cru12l3kx3auh" path="res://src/weapons/bullet/rot_gun.tscn" id="6_duryj"]
 [ext_resource type="PackedScene" uid="uid://b5hpfhuyg6de6" path="res://src/ui/Skills/skills.tscn" id="9_r62kq"]
+[ext_resource type="AudioStream" uid="uid://b6rauwjgwiufi" path="res://assets/levels/Lark.ogg" id="10_joptk"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2wf1"]
 _data = {
@@ -53,6 +54,7 @@ update_rotation = false
 update_scale = false
 
 [node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 autostart = true
 
 [node name="Wall" parent="." instance=ExtResource("3_u1j8h")]
@@ -70,6 +72,11 @@ position = Vector2(752, 552)
 [node name="Skills" parent="." instance=ExtResource("9_r62kq")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_joptk")
+volume_db = -10.0
 
 [connection signal="new_ennemi" from="." to="." method="_on_new_ennemi"]
 [connection signal="exp_gained" from="Player" to="." method="_on_player_exp_gained"]

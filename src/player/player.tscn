@@ -70,7 +70,6 @@ offset_bottom = -28.0
 theme_override_styles/background = SubResource("StyleBoxFlat_46vhh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qq2y2")
 value = 100.0
-show_percentage = false
 
 [node name="CollectZone" type="Area2D" parent="."]
 collision_layer = 0

@@ -3,18 +3,7 @@ extends Control
 signal skills_modified
 
 var buttons = [TextureButton]
-var skills = {
-		"health1" : false,
-		"health2" : false,
-		"health3" : false,
-		"health4" : false,
-		"health5" : false,
-		"speed1" : false,
-		"speed2" : false,
-		"speed3" : false,
-		"speed4" : false,
-		"speed5" : false,
-	}
+
 
 	
 func _ready():
@@ -78,11 +67,14 @@ func _on_skill_button_pressed(button):
 func read_buttons():
 	Debug.print("Reading buttons")
 	for b in buttons:
-		if b.button_pressed and b.has_meta("value"):
-			Debug.print("There is value")
-			var value = b.get_meta("value")
+		var value = b.get_meta("value")
+		if b.button_pressed:
+			#Debug.print("There is value")
 			if value:
-				Debug.print(value)
-				skills[value] = true
+				#Debug.print(value)
+				Vars.skills[value] = true
+		else:
+			#Debug.print("{v} is false...".format({"v": value}))
+			Vars.skills[value] = false
 	emit_signal("skills_modified")
 
