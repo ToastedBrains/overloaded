@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 signal ennemy_down
 
-var life = 2
+var life = 30
 var speed = 200.0
 var target : Node2D
 var is_pushed = 0
 
 const DNA = preload("res://src/collectibles/dna/dna.tscn")
-
+const DMGTEXT = preload("res://src/ui/hud/messages/damage_pop.tscn")
 
 func die():
 	#Debug.print("A worm is dead")
@@ -29,8 +29,12 @@ func _process(delta):
 	move_and_slide()
 
 
-func take_damage():
-	life -= 1
+func take_damage(damage):
+	life -= damage
+	var new_dmgtext = DMGTEXT.instantiate()
+	new_dmgtext.global_position = global_position
+	new_dmgtext.set_damage_amount(damage)
+	get_parent().call_deferred("add_child", new_dmgtext)
 	if life <= 0:
 		die()
 		emit_signal("ennemy_down")

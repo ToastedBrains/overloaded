@@ -11,6 +11,7 @@ func _process(delta):
 	
 func picked_up(picker):
 	target = picker
+	await get_tree().create_timer(0.5).timeout
 	Debug.print("DNA picked up")
 	emit_signal("collected")
-	#queue_free()
+	queue_free()

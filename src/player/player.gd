@@ -1,14 +1,28 @@
 extends CharacterBody2D
 
 signal player_health_exhausted
+signal exp_gained
+signal skill_point_earned
 
 var speed = 600.0
-const HEALTH_MAX = 100.0
+var health_max = 100.0
 
-var health = HEALTH_MAX
+var health = health_max
 var input = Vector2.ZERO
-var exp = 0
-var exp_steps = [3]
+
+
+var skills = {
+		"health1" : false,
+		"health2" : false,
+		"health3" : false,
+		"health4" : false,
+		"health5" : false,
+		"speed1" : false,
+		"speed2" : false,
+		"speed3" : false,
+		"speed4" : false,
+		"speed5" : false,
+	}
 
 func _process(_delta):
 	%HealthBar.value = health
@@ -33,14 +47,36 @@ func _physics_process(delta):
 func _on_collect_zone_area_entered(area):
 	if area.is_in_group("dna"):
 		area.picked_up(self)
-		exp += 1
-		if exp in exp_steps:
-			exp_steps.append(exp_steps.back() * 2) 
-			Debug.print(exp_steps)
+		Vars.exp += 1
+		emit_signal("exp_gained")
+		if Vars.exp in Vars.exp_steps:
+		#if Vars.exp == Vars.next_exp_step:
+			Vars.skill_points += 1
+			emit_signal("skill_point_earned")
+			Vars.exp_steps.append(Vars.exp_steps.back() * 2)
+			#Vars.next_exp_step = Vars.next_exp_step * 2
+			#Debug.print(Vars.exp_steps)
 
 
 func update_skills(skills):
-	Debug.print(skills)
-	if skills["speed4"]:
-		Debug.print("Gotcha!")
-		speed *= 2
+	#Debug.print("Updating skills...")
+	for key in skills:
+		#Debug.print([key, skills[key]])
+		#Debug.print("----------------")
+		match key:
+			"health1":
+				if skills["health1"]:
+					#Debug.print("health1")
+					pass
+			"health2":
+				if skills["health2"]:
+					#Debug.print("health2")
+					pass
+			"speed1":
+				if skills["speed1"]:
+					#Debug.print("speed1")
+					pass
+			"speed2":
+				if skills["speed2"]:
+					#Debug.print("speed2")
+					pass

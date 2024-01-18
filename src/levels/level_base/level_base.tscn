@@ -72,6 +72,8 @@ unique_name_in_owner = true
 visible = false
 
 [connection signal="new_ennemi" from="." to="." method="_on_new_ennemi"]
+[connection signal="exp_gained" from="Player" to="." method="_on_player_exp_gained"]
 [connection signal="player_health_exhausted" from="Player" to="." method="_on_player_player_health_exhausted"]
+[connection signal="skill_point_earned" from="Player" to="." method="_on_player_skill_point_earned"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="skills_modified" from="Skills" to="." method="_on_skills_skills_modified"]

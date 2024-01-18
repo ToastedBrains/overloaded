@@ -27,20 +27,6 @@ func pause_game():
 		game_state = State.PAUSED
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func spawn():
 	var new_ennemi = ENNEMI.instantiate()
 	new_ennemi.target = %Player
@@ -49,6 +35,7 @@ func spawn():
 	new_ennemi.ennemy_down.connect(self._on_ennemy_down)
 	call_deferred("add_child", new_ennemi)
 	emit_signal("new_ennemi")
+
 
 func _on_spawn_timer_timeout():
 	spawn()
@@ -72,3 +59,13 @@ func _on_player_player_health_exhausted():
 func _on_skills_skills_modified():
 	Debug.print("Skills update")
 	%Player.update_skills(%Skills.skills)
+	%HUD.hide_skill_message()
+
+
+func _on_player_skill_point_earned():
+	%Skills.update_points()
+	%HUD.show_skill_message()
+
+
+func _on_player_exp_gained():
+	%HUD.update_xp()
