@@ -2,17 +2,41 @@ extends Node
 
 signal new_ennemi
 
-
-
 const ENNEMI = preload("res://src/ennemies/ennemy/ennemy.tscn")
 
 var ennemies = 0
 var ennemies_down = 0
-
+var scenario = [
+	{
+		"kill": 100,
+		"complete": false
+	},
+	{
+		"go": null,
+		"complete": false,
+	},
+	{
+		"pick-up": null,
+		"complete": false,
+	},
+	{
+		"capture": null,
+		"complete": false,
+	},
+	{
+		"active": null,
+		"complete": false,
+	},
+	{
+		"go": null,
+		"complete": false,
+	},
+]
 
 
 func _ready():
-	%Music.play()
+	#%Music.play()
+	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):

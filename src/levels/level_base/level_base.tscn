@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
 [ext_resource type="PackedScene" uid="uid://cqrv6ncxrirb1" path="res://src/ui/hud/hud.tscn" id="2_sf1qe"]
 [ext_resource type="Script" path="res://src/levels/level_base/Camera2D.gd" id="3_p3g0h"]
-[ext_resource type="PackedScene" uid="uid://bjb278c20ud2o" path="res://src/levels/objectives/objective.tscn" id="3_rtt5h"]
 [ext_resource type="PackedScene" uid="uid://b75yb01fpbood" path="res://src/levels/obstables/wall.tscn" id="3_u1j8h"]
 [ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="3_vwajk"]
 [ext_resource type="PackedScene" uid="uid://cru12l3kx3auh" path="res://src/weapons/bullet/rot_gun.tscn" id="6_duryj"]
 [ext_resource type="PackedScene" uid="uid://b5hpfhuyg6de6" path="res://src/ui/Skills/skills.tscn" id="9_r62kq"]
+[ext_resource type="PackedScene" uid="uid://dngarafyk4y7s" path="res://src/objectives/objective.tscn" id="10_1sbch"]
 [ext_resource type="AudioStream" uid="uid://b6rauwjgwiufi" path="res://assets/levels/Lark.ogg" id="10_joptk"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2wf1"]
@@ -22,9 +22,6 @@ script = ExtResource("1_qig2g")
 
 [node name="HUD" parent="." instance=ExtResource("2_sf1qe")]
 unique_name_in_owner = true
-
-[node name="Objective" parent="." instance=ExtResource("3_rtt5h")]
-position = Vector2(-88, 176)
 
 [node name="Player" parent="." instance=ExtResource("1_nja47")]
 unique_name_in_owner = true
@@ -77,6 +74,9 @@ visible = false
 unique_name_in_owner = true
 stream = ExtResource("10_joptk")
 volume_db = -10.0
+
+[node name="Objective" parent="." instance=ExtResource("10_1sbch")]
+position = Vector2(-632, 624)
 
 [connection signal="new_ennemi" from="." to="." method="_on_new_ennemi"]
 [connection signal="exp_gained" from="Player" to="." method="_on_player_exp_gained"]

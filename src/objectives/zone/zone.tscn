@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjb278c20ud2o"]
 
-[ext_resource type="Script" path="res://src/levels/objectives/objective.gd" id="1_hg3x6"]
+[ext_resource type="Script" path="res://src/objectives/zone/zone.gd" id="1_xgmcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4gp0"]
 size = Vector2(256, 256)
 
-[node name="Objective" type="Area2D"]
+[node name="Zone" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_hg3x6")
+script = ExtResource("1_xgmcw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
