@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=14 format=3 uid="uid://blvmw1aet6bb6"]
-=======
-[gd_scene load_steps=9 format=3 uid="uid://blvmw1aet6bb6"]
->>>>>>> aa2dbb8 (Double & triple shoot.)
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
