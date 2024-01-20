@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjb278c20ud2o"]
+[gd_scene load_steps=4 format=3 uid="uid://bjb278c20ud2o"]
 
-[ext_resource type="Script" path="res://src/levels/objectives/objective.gd" id="1_hg3x6"]
+[ext_resource type="Script" path="res://src/objectives/zone/zone.gd" id="1_xgmcw"]
+[ext_resource type="PackedScene" uid="uid://dngarafyk4y7s" path="res://src/objectives/objective_arrow.tscn" id="2_g5xst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4gp0"]
 size = Vector2(256, 256)
 
-[node name="Objective" type="Area2D"]
+[node name="Zone" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_hg3x6")
+script = ExtResource("1_xgmcw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -29,6 +30,8 @@ offset_top = -24.0
 offset_right = 112.0
 offset_bottom = -1.0
 text = "00.0"
+
+[node name="ObjectiveArrow" parent="." instance=ExtResource("2_g5xst")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

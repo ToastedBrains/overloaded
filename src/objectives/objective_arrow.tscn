@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3 uid="uid://dngarafyk4y7s"]
+
+[ext_resource type="Script" path="res://src/objectives/objective_arrow.gd" id="1_va18l"]
+[ext_resource type="Texture2D" uid="uid://b2ubdgjb43emj" path="res://assets/objectives/arrow.png" id="2_i2m0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uefdv"]
+radius = 192.167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bp4m6"]
+radius = 320.1
+
+[sub_resource type="Animation" id="Animation_1kw2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yb3k8"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vrhbx"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5cg7x"]
+resource_name = "proxi1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.498039, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6juuw"]
+resource_name = "proxi2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.498039, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7inmj"]
+_data = {
+"RESET": SubResource("Animation_1kw2a"),
+"fade_in": SubResource("Animation_yb3k8"),
+"fade_out": SubResource("Animation_vrhbx"),
+"proxi1": SubResource("Animation_5cg7x"),
+"proxi2": SubResource("Animation_6juuw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_104db"]
+radius = 64.4981
+
+[node name="ObjectiveArrow" type="Area2D"]
+script = ExtResource("1_va18l")
+
+[node name="Target" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Proxi1" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Proxi1"]
+visible = false
+shape = SubResource("CircleShape2D_uefdv")
+
+[node name="Proxi2" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Proxi2"]
+unique_name_in_owner = true
+visible = false
+shape = SubResource("CircleShape2D_bp4m6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.937255, 0.317647, 0.0784314, 1)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(600, 300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_i2m0k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7inmj")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_104db")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Proxi1" to="." method="_on_proxi_1_body_entered"]
+[connection signal="body_exited" from="Proxi1" to="." method="_on_proxi_1_body_exited"]
+[connection signal="body_entered" from="Proxi2" to="." method="_on_proxi_2_body_entered"]
+[connection signal="body_exited" from="Proxi2" to="." method="_on_proxi_2_body_exited"]

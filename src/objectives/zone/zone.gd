@@ -1,8 +1,8 @@
 extends Area2D
 
-signal objective_completed
+signal zone_controlled
 
-const TIME_TO_SOLVE = 5.0
+const TIME_TO_SOLVE = 1.0
 var time_remaining : float
 
 
@@ -27,7 +27,8 @@ func _on_body_exited(body):
 
 
 func _on_solve_timer_timeout():
-	emit_signal("objective_completed")
+	emit_signal("zone_controlled")
 	%ColorRect.color = Color(0, 1, 0, 0.5)
 	%SolveTimer.stop()
 	%TimeDisplay.hide()
+	$ObjectiveArrow.hide()

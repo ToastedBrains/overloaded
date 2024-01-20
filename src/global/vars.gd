@@ -21,8 +21,8 @@ var skills = {
 		"speed1" : false, # Speed +20%
 		"speed2" : false, # Speed +50%
 		"speed3" : false, # Speed X2
-		"speed4" : false, # Chance to dodge
-		"speed5" : false, # Dash
+		"speed4" : false, # Chance to dodge?
+		"speed5" : false, # Bullet time? Dash?
 		"dmg20" : false, # Damage +20%
 		"dmg50" : false, # Damage +50%
 		"scope" : false, # Range X2

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqkbxjwjpgd01"]
+
+[ext_resource type="Script" path="res://src/objectives/exit/exit.gd" id="1_0sxgx"]
+[ext_resource type="PackedScene" uid="uid://dngarafyk4y7s" path="res://src/objectives/objective_arrow.tscn" id="2_3twyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s367f"]
+radius = 24.0
+
+[node name="Exit" type="Area2D"]
+script = ExtResource("1_0sxgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s367f")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ObjectiveArrow" parent="." instance=ExtResource("2_3twyd")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct8stw0bbncju"]
+
+[ext_resource type="Script" path="res://src/objectives/artefact/artefact.gd" id="1_84gvr"]
+[ext_resource type="PackedScene" uid="uid://dngarafyk4y7s" path="res://src/objectives/objective_arrow.tscn" id="2_bx4md"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4ear"]
+radius = 16.0
+
+[node name="Artefact" type="Area2D"]
+script = ExtResource("1_84gvr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b4ear")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_right = 6.0
+offset_bottom = 22.0
+rotation = -0.783959
+
+[node name="ObjectiveArrow" parent="." instance=ExtResource("2_bx4md")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
