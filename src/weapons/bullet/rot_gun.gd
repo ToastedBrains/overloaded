@@ -1,7 +1,11 @@
 extends Area2D
 
 var ROF = 2.0 # bullets / second
+var random_rotation = randi_range(0, 180)
 const BULLET = preload("res://src/weapons/bullet/bullet.tscn")
+
+func _init():
+	global_rotation_degrees += random_rotation
 
 func set_rate_of_fire(new_rof: float):
 	ROF = new_rof

@@ -62,6 +62,7 @@ position = Vector2(-64, -64)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 4.0
 autostart = true
 
 [node name="Skills" parent="." instance=ExtResource("9_r62kq")]

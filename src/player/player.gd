@@ -12,6 +12,11 @@ var input = Vector2.ZERO
 var dna_give_health = false
 var regenerate = false
 
+var extra_gun_1 = false
+var extra_gun_2 = false
+var extra_gun_3 = false
+var arm_super = false
+
 var skills = {
 		"health1" : false,
 		"health2" : false,
@@ -24,6 +29,8 @@ var skills = {
 		"speed4" : false,
 		"speed5" : false,
 	}
+
+const EXTRA_GUN = preload("res://src/weapons/bullet/rot_gun.tscn")
 
 func _process(delta):
 	%HealthBar.value = health
@@ -58,6 +65,19 @@ func _on_collect_zone_area_entered(area):
 			emit_signal("skill_point_earned")
 			Vars.xp_steps.append(Vars.xp_steps.back() * 2)
 
+
+func refresh_extra_arms():
+	Debug.print("refresh_extra_arms")
+	var extra_guns = get_tree().get_nodes_in_group("extra_guns")
+	for g in extra_guns:
+		g.queue_free()
+		Debug.print("removed a rotgun")
+	Debug.print([extra_gun_1, extra_gun_2, extra_gun_3])
+	for g in [extra_gun_1, extra_gun_2, extra_gun_3]:
+		if g:
+			Debug.print("adding a rotgun")
+			var extra_gun = EXTRA_GUN.instantiate()
+			call_deferred("add_child", extra_gun)
 
 func update_skills(skills):
 	#Debug.print("Updating skills...")
@@ -102,20 +122,18 @@ func update_skills(skills):
 			Vars.impact * 2)
 	if skills["rof2"]:
 		%Gun.set_rate_of_fire(4.0)
-	elif skills["rof3"]:
-		%Gun.set_rate_of_fire(8.0)
+	if skills["rof3"]:
+		%Gun.set_rate_of_fire(6.0)
 	if skills["scope"]:
 		Vars.set_scope(6000, 1800.0)
 	if skills["explosive"]:
-		pass
+		pass # Emit 8/12 bullets in all directions
 	Vars.piercing = Vars.skills["piercing"]
 	Vars.double = Vars.skills["double"]
 	Vars.triple = Vars.skills["triple"]
-	if skills["arm1"]:
-		pass
-	if skills["arm2"]:
-		pass
-	if skills["arm3"]:
-		pass
-	if skills["armsuper"]:
-		pass
+	extra_gun_1 = skills["arm1"]
+	extra_gun_2 = skills["arm2"]
+	extra_gun_3 = skills["arm3"]
+	arm_super = skills["armsuper"]
+	Debug.print(Vars.skills)
+	refresh_extra_arms()
