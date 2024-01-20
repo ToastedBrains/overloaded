@@ -187,8 +187,120 @@ stretch_mode = 0
 metadata/value = "health5"
 
 [node name="Weapon" type="TabBar" parent="CanvasLayer/TabContainer"]
-visible = false
 layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 144.0
+offset_right = 376.0
+offset_bottom = 167.0
+text = "dmg +20%"
+
+[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 240.0
+offset_right = 376.0
+offset_bottom = 263.0
+text = "dmg +50%"
+
+[node name="Label3" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 440.0
+offset_right = 308.0
+offset_bottom = 463.0
+text = "dmg X2"
+
+[node name="Label4" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 336.0
+offset_right = 108.0
+offset_bottom = 359.0
+text = "rof X2"
+
+[node name="Label5" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 336.0
+offset_right = 204.0
+offset_bottom = 359.0
+text = "rof X3"
+
+[node name="Label6" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 336.0
+offset_right = 300.0
+offset_bottom = 359.0
+text = "scope"
+
+[node name="Label7" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 336.0
+offset_right = 460.0
+offset_bottom = 359.0
+text = "double"
+
+[node name="Label8" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 432.0
+offset_right = 460.0
+offset_bottom = 455.0
+text = "triple"
+
+[node name="Label9" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 528.0
+offset_right = 468.0
+offset_bottom = 551.0
+text = "arm1"
+
+[node name="Label12" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 528.0
+offset_right = 548.0
+offset_bottom = 551.0
+text = "arm2"
+
+[node name="Label13" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 528.0
+offset_right = 636.0
+offset_bottom = 551.0
+text = "arm3"
+
+[node name="Label14" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 424.0
+offset_right = 636.0
+offset_bottom = 473.0
+text = "arm
+super"
+
+[node name="Label10" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 536.0
+offset_right = 308.0
+offset_bottom = 559.0
+text = "piercing"
+
+[node name="Label11" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 536.0
+offset_right = 204.0
+offset_bottom = 559.0
+text = "explosive"
 
 [node name="Damage20" type="TextureButton" parent="CanvasLayer/TabContainer/Weapon" groups=["buttons"]]
 layout_mode = 0

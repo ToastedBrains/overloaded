@@ -12,6 +12,7 @@ var xp = 0
 var xp_steps = [3]
 var next_xp_step = 3
 
+
 var skills = {
 		"health1" : false, # Health +20%
 		"health2" : false, # Health +50%
@@ -38,3 +39,23 @@ var skills = {
 		"arm3" : false, # One extra armed arm
 		"armsuper" : false, # Extra arms shoot even more
 	}
+
+
+# Bullet
+var base_damage = 10.0
+var max_random_damage = 4
+var speed = 1200.0
+var scope = 3000
+var impact = 20.0
+var piercing = false
+var double = false
+var triple = false
+
+func set_damage(base : float, extra : int, imp : float):
+	base_damage = base
+	max_random_damage = extra
+	impact = imp
+
+func set_scope(new_scope : int, new_speed : float):
+	scope = new_scope
+	speed = new_speed
