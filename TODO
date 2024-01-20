@@ -1,0 +1,39 @@
+# TODO
+## Notes
+- Only DEATH ending to the game jam
+
+## List of things to do
+- Player skills
+    - [ ] Pop-up skill tree on level up
+    - [ ] Add acroll bar to skill tree
+    - [ ] Skill icons
+- Title screen
+    - [ ] Opening screen with logo's
+    - [ ] Add title screen
+        - [ ] Background image
+    - [ ] Add credits
+    - [ ] Menu Options
+- Game over screen
+    - [ ] Stats screen
+    - [ ] Background image
+- Interface
+    - [ ] Add health bar
+    - [ ] Add experience bar
+    - [ ] Add level indicator
+    - [ ] Add chrono in unix time format
+    - [ ] Add number of kills
+    - [ ] Damage indicator with different colors
+- Intro
+    - [ ] Player side animation
+    - [ ] Hand animation with a photo
+    - [ ] Face animation putting the helmet
+- Player
+    - [ ] Weapon bullet graphic
+    - [ ] Player graphics
+    - [ ] IDLE animation
+    - [ ] Walk animation
+    - [ ] Fire animation
+- Enemies
+    - [ ] Enemy graphics
+    - [ ] Walk animation
+    - [ ] Attack animation
