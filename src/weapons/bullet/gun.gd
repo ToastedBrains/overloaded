@@ -3,8 +3,10 @@ extends Area2D
 var ROF = 2.0 # bullets / second
 const BULLET = preload("res://src/weapons/bullet/bullet.tscn")
 
-
-
+func set_rate_of_fire(new_rof: float):
+	ROF = new_rof
+	%ShootTimer.wait_time = 1 / ROF
+	
 func _ready():
 	#Debug.print(%ShootTimer.wait_time)
 	%ShootTimer.wait_time = 1 / ROF

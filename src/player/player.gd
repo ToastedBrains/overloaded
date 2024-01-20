@@ -85,3 +85,31 @@ func update_skills(skills):
 		speed = 900.0
 	if skills["speed3"]:
 		speed = 1200.0
+	if skills["dmg20"]:
+		pass
+	elif skills["dmg50"]:
+		pass
+	elif skills["dmgx2"]:
+		pass
+	if skills["rof2"]:
+		pass
+	elif skills["rof3"]:
+		pass
+	if skills["scope"]:
+		pass
+	if skills["explosive"]:
+		pass
+	if skills["piercing"]:
+		pass
+	if skills["double"]:
+		pass
+	if skills["triple"]:
+		pass
+	if skills["arm1"]:
+		pass
+	if skills["arm2"]:
+		pass
+	if skills["arm3"]:
+		pass
+	if skills["armsuper"]:
+		pass

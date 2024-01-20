@@ -26,6 +26,7 @@ var skills = {
 		"dmg20" : false, # Damage +20%
 		"dmg50" : false, # Damage +50%
 		"scope" : false, # Range X2
+		"dmgx2" : false, # Damage X2
 		"rof2" : false, # Rate of fire X2
 		"rof3" : false, # Rate of fire X3
 		"explosive" : false, # Explosive ammo
