@@ -180,7 +180,7 @@ func spawn():
 
 
 func spawn_more():
-	%SpawnTimer.wait_time /= 1.1
+	%SpawnTimer.wait_time /= 1.5
 
 func _on_spawn_timer_timeout():
 	spawn()

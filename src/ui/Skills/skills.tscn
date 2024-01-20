@@ -187,6 +187,7 @@ stretch_mode = 0
 metadata/value = "health5"
 
 [node name="Weapon" type="TabBar" parent="CanvasLayer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Weapon"]

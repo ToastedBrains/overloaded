@@ -7,7 +7,7 @@ var game_state = State.OPENING
 var zoom = 1.0
 var spawn_scale = Vector2.ZERO
 
-var skill_points = 0
+var skill_points = 10
 var xp = 0
 var xp_steps = [3]
 var next_xp_step = 3
