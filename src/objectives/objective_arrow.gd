@@ -4,6 +4,9 @@ extends Area2D
 
 
 func _process(delta):
+	if %Arrow == null || %Target == null || player == null:
+		return
+	
 	%Arrow.look_at(%Target.global_position)
 	%Arrow.global_position.x = clamp(%Target.global_position.x, player.global_position.x - 350, player.global_position.x + 350)
 	%Arrow.global_position.y = clamp(%Target.global_position.y - 50, player.global_position.y - 250, player.global_position.y + 250)
