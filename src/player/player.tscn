@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://v8dorecia6mh"]
+[gd_scene load_steps=9 format=3 uid="uid://v8dorecia6mh"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_dmejq"]
+[ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="2_8clpa"]
+[ext_resource type="PackedScene" uid="uid://cru12l3kx3auh" path="res://src/weapons/bullet/rot_gun.tscn" id="3_baemo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_614yr"]
 radius = 24.0
@@ -77,5 +79,17 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone"]
 shape = SubResource("CircleShape2D_japb3")
+
+[node name="Gun" parent="." instance=ExtResource("2_8clpa")]
+unique_name_in_owner = true
+
+[node name="RotGun" parent="." instance=ExtResource("3_baemo")]
+top_level = true
+position = Vector2(1, 0)
+
+[node name="RemoteTransform" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../RotGun")
+update_rotation = false
+update_scale = false
 
 [connection signal="area_entered" from="CollectZone" to="." method="_on_collect_zone_area_entered"]

@@ -86,25 +86,31 @@ func update_skills(skills):
 	if skills["speed3"]:
 		speed = 1200.0
 	if skills["dmg20"]:
-		pass
+		Vars.set_damage(
+			Vars.base_damage * 1.2,
+			Vars.max_random_damage + 1,
+			Vars.impact * 1.2)
 	elif skills["dmg50"]:
-		pass
+		Vars.set_damage(
+			Vars.base_damage * 1.5,
+			Vars.max_random_damage + 3,
+			Vars.impact * 1.5)
 	elif skills["dmgx2"]:
-		pass
+		Vars.set_damage(
+			Vars.base_damage * 2,
+			Vars.max_random_damage + 5,
+			Vars.impact * 2)
 	if skills["rof2"]:
-		pass
+		%Gun.set_rate_of_fire(4.0)
 	elif skills["rof3"]:
-		pass
+		%Gun.set_rate_of_fire(8.0)
 	if skills["scope"]:
-		pass
+		Vars.set_scope(6000, 1800.0)
 	if skills["explosive"]:
 		pass
-	if skills["piercing"]:
-		pass
-	if skills["double"]:
-		pass
-	if skills["triple"]:
-		pass
+	Vars.piercing = Vars.skills["piercing"]
+	Vars.double = Vars.skills["double"]
+	Vars.triple = Vars.skills["triple"]
 	if skills["arm1"]:
 		pass
 	if skills["arm2"]:
