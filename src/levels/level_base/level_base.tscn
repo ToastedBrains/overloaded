@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blvmw1aet6bb6"]
+[gd_scene load_steps=12 format=3 uid="uid://blvmw1aet6bb6"]
 
 [ext_resource type="PackedScene" uid="uid://v8dorecia6mh" path="res://src/player/player.tscn" id="1_nja47"]
 [ext_resource type="Script" path="res://src/levels/level_base/level_base.gd" id="1_qig2g"]
@@ -24,10 +24,11 @@ _data = {
 }
 point_count = 5
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" groups=["level"]]
 script = ExtResource("1_qig2g")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(800, 600)

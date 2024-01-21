@@ -67,15 +67,15 @@ func _on_collect_zone_area_entered(area):
 
 
 func refresh_extra_arms():
-	Debug.print("refresh_extra_arms")
+	#Debug.print("refresh_extra_arms")
 	var extra_guns = get_tree().get_nodes_in_group("extra_guns")
 	for g in extra_guns:
 		g.queue_free()
-		Debug.print("removed a rotgun")
-	Debug.print([extra_gun_1, extra_gun_2, extra_gun_3])
+		#Debug.print("removed a rotgun")
+	#Debug.print([extra_gun_1, extra_gun_2, extra_gun_3])
 	for g in [extra_gun_1, extra_gun_2, extra_gun_3]:
 		if g:
-			Debug.print("adding a rotgun")
+			#Debug.print("adding a rotgun")
 			var extra_gun = EXTRA_GUN.instantiate()
 			call_deferred("add_child", extra_gun)
 
@@ -126,8 +126,7 @@ func update_skills(skills):
 		%Gun.set_rate_of_fire(6.0)
 	if skills["scope"]:
 		Vars.set_scope(6000, 1800.0)
-	if skills["explosive"]:
-		pass # Emit 8/12 bullets in all directions
+	Vars.explosive = skills["explosive"]
 	Vars.piercing = Vars.skills["piercing"]
 	Vars.double = Vars.skills["double"]
 	Vars.triple = Vars.skills["triple"]
@@ -135,5 +134,5 @@ func update_skills(skills):
 	extra_gun_2 = skills["arm2"]
 	extra_gun_3 = skills["arm3"]
 	arm_super = skills["armsuper"]
-	Debug.print(Vars.skills)
+	#Debug.print(Vars.skills)
 	refresh_extra_arms()

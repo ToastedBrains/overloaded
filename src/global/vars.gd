@@ -50,6 +50,7 @@ var impact = 20.0
 var piercing = false
 var double = false
 var triple = false
+var explosive = false
 
 func set_damage(base : float, extra : int, imp : float):
 	base_damage = base
