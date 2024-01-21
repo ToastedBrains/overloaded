@@ -4,8 +4,10 @@
 
 ## List of things to do
 - Player skills
-    - [ ] Pop-up skill tree on level up
+    - [-] ~Pop-up skill tree on level up~
+    - [x] Icon to indicate level up
     - [ ] Add acroll bar to skill tree
+    - [ ] Connect life hud to player life
     - [ ] Skill icons
 - Title screen
     - [ ] Opening screen with logo's
