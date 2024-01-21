@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8dorecia6mh"]
+[gd_scene load_steps=14 format=3 uid="uid://v8dorecia6mh"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_dmejq"]
 [ext_resource type="PackedScene" uid="uid://bdtmi60lcun7r" path="res://src/weapons/bullet/gun.tscn" id="2_8clpa"]
+[ext_resource type="Texture2D" uid="uid://boblbvlbw6xab" path="res://assets/divers.svg" id="3_dw46e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_614yr"]
 radius = 24.0
@@ -18,12 +19,180 @@ bg_color = Color(0.6, 1, 0.286275, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_japb3"]
 radius = 127.0
 
+[sub_resource type="Animation" id="Animation_gu1c1"]
+resource_name = "IDLE"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1, 1.8, 2.2, 2.9, 3.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.13446, 1.13446, 0.0, 0.0, -1.13446, -1.13446, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LeftShoulder:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.6, 2.8, 3.3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RightShoulder:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ddfea"]
+resource_name = "Walk"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, -1), Vector2(3, -9), Vector2(3, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RightFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -1), Vector2(-3, -9), Vector2(-3, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_60h0v"]
+resource_name = "Fire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Gun2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 14.5), Vector2(0, 9), Vector2(0, 14.5)]
+}
+
+[sub_resource type="Animation" id="Animation_cfmco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Gun2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LeftShoulder:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/RightShoulder:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/LeftFoot:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/RightFoot:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cw63u"]
+_data = {
+"Fire": SubResource("Animation_60h0v"),
+"IDLE": SubResource("Animation_gu1c1"),
+"RESET": SubResource("Animation_cfmco"),
+"Walk": SubResource("Animation_ddfea")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(1, 0)
 collision_mask = 6
 script = ExtResource("1_dmejq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,6 +207,7 @@ grow_vertical = 2
 color = Color(0.556863, 0.556863, 0.556863, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -64,6 +234,7 @@ shape = SubResource("CircleShape2D_5tiaq")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -24.0
 offset_top = -36.0
 offset_right = 24.0
@@ -77,13 +248,72 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone"]
+visible = false
 shape = SubResource("CircleShape2D_japb3")
 
 [node name="Gun" parent="." instance=ExtResource("2_8clpa")]
 unique_name_in_owner = true
+visible = false
 
 [node name="RemoteTransform" type="RemoteTransform2D" parent="."]
 update_rotation = false
 update_scale = false
+
+[node name="Body" type="Sprite2D" parent="."]
+z_index = 1
+rotation = -1.5708
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(30, 82, 23, 20)
+
+[node name="Head" type="Sprite2D" parent="Body"]
+z_index = 2
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(34, 43, 15, 15)
+
+[node name="LeftShoulder" type="Sprite2D" parent="Body"]
+z_index = 1
+position = Vector2(13, 0)
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(59, 63, 14, 16)
+
+[node name="RightShoulder" type="Sprite2D" parent="Body"]
+z_index = 1
+position = Vector2(-11, 0)
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(11, 63, 14, 15)
+
+[node name="Gun2" type="Sprite2D" parent="Body"]
+position = Vector2(2, 13)
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(27, 106, 26, 22)
+
+[node name="LeftFoot" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(3, -1)
+rotation = -1.5708
+scale = Vector2(0.522194, 0.326116)
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(11, 63, 14, 15)
+
+[node name="RightFoot" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(-3, -1)
+rotation = -1.5708
+scale = Vector2(0.522194, 0.326116)
+texture = ExtResource("3_dw46e")
+region_enabled = true
+region_rect = Rect2(11, 63, 14, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cw63u")
+}
 
 [connection signal="area_entered" from="CollectZone" to="." method="_on_collect_zone_area_entered"]

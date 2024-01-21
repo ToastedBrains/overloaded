@@ -31,10 +31,10 @@
     - [ ] Face animation putting the helmet
 - Player
     - [ ] Weapon bullet graphic
-    - [ ] Player graphics
-    - [ ] IDLE animation
-    - [ ] Walk animation
-    - [ ] Fire animation
+    - [x] Player graphics
+    - [x] IDLE animation
+    - [x] Walk animation
+    - [x] Fire animation
 - Enemies
     - [ ] Enemy graphics
     - [ ] Walk animation

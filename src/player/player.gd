@@ -47,10 +47,9 @@ func _physics_process(delta):
 		if health <= 0:
 			emit_signal("player_health_exhausted")
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * speed
+	velocity = direction * speed		
 	look_at(global_position + direction)
 	move_and_slide()
-
 
 
 func _on_collect_zone_area_entered(area):
