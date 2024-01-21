@@ -15,7 +15,7 @@ var regenerate = false
 var extra_gun_1 = false
 var extra_gun_2 = false
 var extra_gun_3 = false
-var arm_super = false
+#var arm_super = false
 
 var skills = {
 		"health1" : false,
@@ -67,18 +67,30 @@ func _on_collect_zone_area_entered(area):
 
 
 func refresh_extra_arms():
-	#Debug.print("refresh_extra_arms")
-	var extra_guns = get_tree().get_nodes_in_group("extra_guns")
-	for g in extra_guns:
-		g.queue_free()
-		#Debug.print("removed a rotgun")
-	#Debug.print([extra_gun_1, extra_gun_2, extra_gun_3])
+	var current_extra_guns = get_tree().get_nodes_in_group("extra_guns")
+	var extra_guns_set : int
 	for g in [extra_gun_1, extra_gun_2, extra_gun_3]:
 		if g:
-			#Debug.print("adding a rotgun")
+			extra_guns_set += 1
+	var diff = current_extra_guns.size() - extra_guns_set
+	if diff > 0:
+		for g in current_extra_guns.size() - extra_guns_set:
+			current_extra_guns.pop_front().queue_free()
+	elif diff < 0:
+		for g in extra_guns_set - current_extra_guns.size():
 			var extra_gun = EXTRA_GUN.instantiate()
 			call_deferred("add_child", extra_gun)
-
+	for rg in get_tree().get_nodes_in_group("extra_guns"):
+		if Vars.arm_super:
+			rg.set_rate_of_fire(4.0)
+	#for g in extra_guns:
+		#g.queue_free()
+	#for g in [extra_gun_1, extra_gun_2, extra_gun_3]:
+		#if g:
+			#var extra_gun = EXTRA_GUN.instantiate()
+			#call_deferred("add_child", extra_gun)
+	#if Vars.arm_super:
+		#rg.set_rate_of_fire(4.0)
 func update_skills(skills):
 	#Debug.print("Updating skills...")
 	if skills["health3"]:
@@ -133,6 +145,10 @@ func update_skills(skills):
 	extra_gun_1 = skills["arm1"]
 	extra_gun_2 = skills["arm2"]
 	extra_gun_3 = skills["arm3"]
-	arm_super = skills["armsuper"]
-	#Debug.print(Vars.skills)
+	Vars.arm_super = skills["armsuper"]
 	refresh_extra_arms()
+		#for rg in get_tree().get_nodes_in_group("extra_guns"):
+			#if Vars.arm_super:
+				#rg.set_rate_of_fire(4.0)
+	#Debug.print(Vars.skills)
+	
