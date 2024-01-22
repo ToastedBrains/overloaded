@@ -4,9 +4,11 @@
 
 ## List of things to do
 - Player skills
-    - [ ] Pop-up skill tree on level up
+    - [-] ~Pop-up skill tree on level up~
+    - [x] Icon to indicate level up
     - [ ] Add acroll bar to skill tree
-    - [ ] Skill icons
+    - [ ] Connect life hud to player life
+    - [x] Skill icons
 - Title screen
     - [ ] Opening screen with logo's
     - [ ] Add title screen
@@ -29,10 +31,10 @@
     - [ ] Face animation putting the helmet
 - Player
     - [ ] Weapon bullet graphic
-    - [ ] Player graphics
-    - [ ] IDLE animation
-    - [ ] Walk animation
-    - [ ] Fire animation
+    - [x] Player graphics
+    - [x] IDLE animation
+    - [x] Walk animation
+    - [x] Fire animation
 - Enemies
     - [ ] Enemy graphics
     - [ ] Walk animation

@@ -1,84 +1,269 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqrv6ncxrirb1"]
+[gd_scene load_steps=12 format=3 uid="uid://cqrv6ncxrirb1"]
 
 [ext_resource type="Script" path="res://src/ui/hud/hud.gd" id="1_fj616"]
+[ext_resource type="Theme" uid="uid://v7v1a4crwgt8" path="res://assets/ui/ui.tres" id="2_gpik0"]
+[ext_resource type="Texture2D" uid="uid://dms8u805f2htt" path="res://assets/ui/hud/up.svg" id="3_2ngg0"]
+[ext_resource type="Texture2D" uid="uid://db3wtpcgkb6v3" path="res://assets/ui/hud/blood.svg" id="3_diiyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdhas"]
+bg_color = Color(0.313726, 0.0666667, 0.117647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.290196, 0.901961, 0.992157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qk4m"]
+bg_color = Color(0.290196, 0.901961, 0.992157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.290196, 0.901961, 0.992157, 0)
 
 [sub_resource type="Animation" id="Animation_7hy4x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NewSkill:theme_override_colors/font_color")
+tracks/0/path = NodePath("Control/LevelUpPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.905882, 0.882353, 0, 1)]
+"values": [Vector2(290.5, 265.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/LevelUpPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/LevelUpPanel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_q33d2"]
 resource_name = "blink"
 loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_6p5du"]
+resource_name = "level_up"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NewSkill:theme_override_colors/font_color")
+tracks/0/path = NodePath("Control/LevelUpPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.905882, 0.882353, 0, 1), Color(0.905882, 0.882353, 0, 0)]
+"values": [Vector2(290.5, 365.5), Vector2(290.5, 265.5), Vector2(290.5, 265.5), Vector2(290.5, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/LevelUpPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/LevelUpPanel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4now2"]
 _data = {
 "RESET": SubResource("Animation_7hy4x"),
-"blink": SubResource("Animation_q33d2")
+"blink": SubResource("Animation_q33d2"),
+"level_up": SubResource("Animation_6p5du")
 }
+
+[sub_resource type="Environment" id="Environment_vpyv5"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_fj616")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gpik0")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 23.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="Control/MarginContainer2"]
 visible = false
 layout_mode = 2
 text = "00"
 
-[node name="Label2" type="Label" parent="MarginContainer"]
+[node name="Label2" type="Label" parent="Control/MarginContainer2"]
 visible = false
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
 
-[node name="Debug" type="Label" parent="MarginContainer"]
+[node name="Debug" type="Label" parent="Control/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "xx"
 
-[node name="NewSkill" type="Label" parent="."]
+[node name="LevelUpPanel" type="PanelContainer" parent="Control"]
 unique_name_in_owner = true
 visible = false
-offset_left = 601.0
-offset_top = 509.0
-offset_right = 771.0
-offset_bottom = 532.0
-theme_override_colors/font_color = Color(0.905882, 0.882353, 0, 1)
-text = "Skills points available!"
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.5
+offset_top = 265.5
+offset_right = 509.5
+offset_bottom = 334.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Bordered"
 
-[node name="ExpBar" type="ProgressBar" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/LevelUpPanel"]
+modulate = Color(0.290196, 0.901961, 0.992157, 1)
+layout_mode = 2
+theme_type_variation = &"Bordered"
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelUpPanel/HSplitContainer"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_2ngg0")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/LevelUpPanel/HSplitContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "level up"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/MarginContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="HSplitContainer" parent="Control/MarginContainer/VSplitContainer/HSplitContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VSplitContainer/HSplitContainer/PanelContainer/MarginContainer"]
+modulate = Color(0.290196, 0.901961, 0.992157, 1)
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_diiyt")
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/VSplitContainer/HSplitContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
-offset_left = 30.0
-offset_top = 539.0
-offset_right = 770.0
-offset_bottom = 569.0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+show_percentage = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/MarginContainer/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="HSplitContainer" parent="Control/MarginContainer/VSplitContainer/HSplitContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VSplitContainer/HSplitContainer/PanelContainer2/MarginContainer"]
+modulate = Color(0.290196, 0.901961, 0.992157, 1)
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_diiyt")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/MarginContainer/VSplitContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CanLevelUp" type="TextureRect" parent="Control/MarginContainer/VSplitContainer/PanelContainer/HSplitContainer"]
+unique_name_in_owner = true
+modulate = Color(0.290196, 0.901961, 0.992157, 1)
+layout_mode = 2
+texture = ExtResource("3_2ngg0")
+stretch_mode = 5
+
+[node name="ExpBar" type="ProgressBar" parent="Control/MarginContainer/VSplitContainer/PanelContainer/HSplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_rdhas")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7qk4m")
 max_value = 3.0
 show_percentage = false
 
@@ -87,3 +272,6 @@ libraries = {
 "": SubResource("AnimationLibrary_4now2")
 }
 autoplay = "blink"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vpyv5")

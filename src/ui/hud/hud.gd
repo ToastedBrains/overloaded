@@ -11,12 +11,11 @@ func _ready():
 	player = get_parent().get_node("Player")
 
 func show_skill_message():
-	%NewSkill.show()
-
+	$AnimationPlayer.play('level_up')
+	%CanLevelUp.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/ui/hud/up_plus.svg"))	
 
 func hide_skill_message():
-	%NewSkill.hide()
-
+	%CanLevelUp.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/ui/hud/up.svg"))
 
 func update_xp():
 	#Debug.print(%ExpBar.value)

@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5hpfhuyg6de6"]
+[gd_scene load_steps=13 format=3 uid="uid://b5hpfhuyg6de6"]
 
 [ext_resource type="Script" path="res://src/ui/Skills/skills.gd" id="1_pymwy"]
 [ext_resource type="Texture2D" uid="uid://bs1vc16a8ddnq" path="res://assets/ui/skills/off.png" id="1_ydce4"]
 [ext_resource type="Texture2D" uid="uid://dof8o05ljvqy4" path="res://assets/ui/skills/on.png" id="2_asuav"]
 [ext_resource type="Texture2D" uid="uid://cfqsru1sfcp26" path="res://assets/ui/skills/disabled.png" id="3_f73ce"]
+[ext_resource type="Texture2D" uid="uid://d17s7ykoya2o0" path="res://assets/ui/skills/plus20.svg" id="5_kb4uj"]
+[ext_resource type="Texture2D" uid="uid://w3jwl4k7plll" path="res://assets/ui/skills/plus50.svg" id="6_rxt68"]
+[ext_resource type="Texture2D" uid="uid://v7ntlib8mwb5" path="res://assets/ui/skills/scope.svg" id="7_7axin"]
+[ext_resource type="Texture2D" uid="uid://cam5qyjesrrwd" path="res://assets/ui/skills/x2.svg" id="8_kkfxl"]
+[ext_resource type="Texture2D" uid="uid://ccfvumf7kdc71" path="res://assets/ui/skills/explode.svg" id="9_rmjxy"]
+[ext_resource type="Texture2D" uid="uid://cp6s3b846tolu" path="res://assets/ui/skills/piercing.svg" id="10_g3q4q"]
+[ext_resource type="Texture2D" uid="uid://dje3a6mmanct0" path="res://assets/ui/skills/double.svg" id="11_qk4eb"]
+[ext_resource type="Texture2D" uid="uid://dlqcryi5oxtht" path="res://assets/ui/skills/triple.svg" id="12_mwhps"]
 
 [node name="Skills" type="Control"]
 layout_mode = 3
@@ -29,6 +37,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 56.0
 offset_right = 752.0
 offset_bottom = 592.0
@@ -191,6 +200,7 @@ visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 296.0
 offset_top = 144.0
@@ -199,6 +209,7 @@ offset_bottom = 167.0
 text = "dmg +20%"
 
 [node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 296.0
 offset_top = 240.0
@@ -207,6 +218,7 @@ offset_bottom = 263.0
 text = "dmg +50%"
 
 [node name="Label3" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 224.0
 offset_top = 440.0
@@ -231,6 +243,7 @@ offset_bottom = 359.0
 text = "rof X3"
 
 [node name="Label6" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 216.0
 offset_top = 336.0
@@ -239,6 +252,7 @@ offset_bottom = 359.0
 text = "scope"
 
 [node name="Label7" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 376.0
 offset_top = 336.0
@@ -247,6 +261,7 @@ offset_bottom = 359.0
 text = "double"
 
 [node name="Label8" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 376.0
 offset_top = 432.0
@@ -288,6 +303,7 @@ text = "arm
 super"
 
 [node name="Label10" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 224.0
 offset_top = 536.0
@@ -296,6 +312,7 @@ offset_bottom = 559.0
 text = "piercing"
 
 [node name="Label11" type="Label" parent="CanvasLayer/TabContainer/Weapon"]
+visible = false
 layout_mode = 0
 offset_left = 120.0
 offset_top = 536.0
@@ -311,7 +328,7 @@ offset_right = 376.0
 offset_bottom = 192.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("5_kb4uj")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -325,7 +342,7 @@ offset_right = 64.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("6_rxt68")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -340,7 +357,7 @@ offset_right = -16.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("7_7axin")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -382,7 +399,7 @@ offset_right = 64.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("8_kkfxl")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -397,7 +414,7 @@ offset_right = -32.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("9_rmjxy")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -411,7 +428,7 @@ offset_right = 64.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("10_g3q4q")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -426,7 +443,7 @@ offset_right = 144.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("11_qk4eb")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
@@ -440,7 +457,7 @@ offset_right = 64.0
 offset_bottom = 160.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_ydce4")
+texture_normal = ExtResource("12_mwhps")
 texture_pressed = ExtResource("2_asuav")
 texture_disabled = ExtResource("3_f73ce")
 ignore_texture_size = true
